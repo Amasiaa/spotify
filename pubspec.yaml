@@ -22,6 +22,10 @@ dependencies:
   firebase_auth: ^5.3.4
   get_it: ^8.0.2
   dartz: ^0.10.1
+  cloud_firestore: ^5.5.1
+  dotenv: ^4.2.0
+  flutter_dotenv: ^5.2.1
+  just_audio: ^0.9.42
 
 dev_dependencies:
   flutter_test:
@@ -36,6 +40,7 @@ flutter:
     - assets/fonts/
     - assets/images/
     - assets/vectors/
+    - .env
 
   fonts:
     - family: Satoshi
