@@ -6,6 +6,7 @@ import 'package:spotify/domain/entities/song/song.dart';
 abstract class SongFirebaseService {
   Future<Either> getNewsSongs();
   Future<Either> getPlayList();
+  Future<Either> addOrRemoveFavorite();
 }
 
 class SongFirebaseServiceImpl extends SongFirebaseService {
@@ -54,5 +55,11 @@ class SongFirebaseServiceImpl extends SongFirebaseService {
     } catch (e) {
       return const Left('An error occured, please try again...');
     }
+  }
+
+  @override
+  Future<Either> addOrRemoveFavorite() {
+    // TODO: implement addOrRemoveFavorite
+    throw UnimplementedError();
   }
 }

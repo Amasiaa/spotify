@@ -16,4 +16,9 @@ class SongRepositoryImpl extends SongRepository {
   Future<Either> getPlayList() async {
     return await songFirebaseService.getPlayList();
   }
+
+  @override
+  Future<Either> addOrRemoveFavorite() async {
+    return await songFirebaseService.addOrRemoveFavorite();
+  }
 }

@@ -10,6 +10,7 @@ import 'package:spotify/firebase_options.dart';
 import 'package:spotify/presentation/choose_mode/cubit/theme_cubit.dart';
 import 'package:spotify/presentation/home/bloc/play_list_bloc.dart';
 import 'package:spotify/presentation/home/bloc/song_bloc.dart';
+import 'package:spotify/presentation/song_player/bloc/song_player_bloc.dart';
 import 'package:spotify/presentation/splash/pages/splash.dart';
 import 'package:spotify/service_locator.dart';
 
@@ -49,6 +50,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => sl<PlayListBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => sl<SongPlayerBloc>(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(

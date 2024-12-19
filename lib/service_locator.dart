@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:spotify/data/repository/auth/auth_repository_impl.dart';
 import 'package:spotify/data/repository/song/song_repo_impl.dart';
 import 'package:spotify/data/sources/auth/auth_firebase_service.dart';
@@ -11,6 +12,7 @@ import 'package:spotify/domain/usecases/song/get_news_songs_usecase.dart';
 import 'package:spotify/domain/usecases/song/get_play_list_usecase.dart';
 import 'package:spotify/presentation/home/bloc/play_list_bloc.dart';
 import 'package:spotify/presentation/home/bloc/song_bloc.dart';
+import 'package:spotify/presentation/song_player/bloc/song_player_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -62,5 +64,9 @@ Future<void> initializeDependencies() async {
     () => PlayListBloc(
       getPlayListUseCase: sl<GetPlayListUseCase>(),
     ),
+  );
+
+  sl.registerFactory(
+    () => SongPlayerBloc(audioPlayer: sl<AudioPlayer>()),
   );
 }

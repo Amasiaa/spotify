@@ -78,7 +78,7 @@ class _NewSongsState extends State<NewSongs> {
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: NetworkImage(
-                            '${AppUrls.firestorage}${song.artist} - ${song.title}.jpg?${AppUrls.mediaAlt}',
+                            '${AppUrls.coverFirestorage}${song.artist} - ${song.title}.jpg?${AppUrls.mediaAlt}',
                           ),
                         ),
                       ),
