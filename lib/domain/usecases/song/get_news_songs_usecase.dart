@@ -9,6 +9,6 @@ class GetNewsSongsUseCase implements UseCase<Either, dynamic> {
 
   @override
   Future<Either> call({params}) async {
-    return songRepository.getNewsSongs();
+    return await songRepository.getNewsSongs();
   }
 }

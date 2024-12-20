@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:spotify/common/helpers/is_dark_mode.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
+import 'package:spotify/common/widgets/favorite_button/favorite_button.dart';
 import 'package:spotify/core/configs/constants/app_urls.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
 import 'package:spotify/domain/entities/song/song.dart';
@@ -98,16 +99,7 @@ class SongPlayer extends StatelessWidget {
             ),
           ],
         ),
-        IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.favorite_outline_outlined,
-            size: 35,
-            color: context.isDarkMode
-                ? AppColors.darkGrey
-                : const Color(0xFFE6E6E6),
-          ),
-        ),
+        FavoriteButton(songEntity: songEntity),
       ],
     );
   }

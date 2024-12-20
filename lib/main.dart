@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:spotify/common/blocs/favorite_button/favorite_button_bloc.dart';
 import 'package:spotify/core/configs/theme/app_theme.dart';
 import 'package:spotify/firebase_options.dart';
 import 'package:spotify/presentation/choose_mode/cubit/theme_cubit.dart';
@@ -53,6 +54,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => sl<SongPlayerBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => sl<FavoriteButtonBloc>(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(

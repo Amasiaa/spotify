@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify/domain/entities/song/song.dart';
 import 'package:spotify/domain/usecases/song/get_news_songs_usecase.dart';
@@ -27,8 +28,14 @@ class SongBloc extends Bloc<SongEvent, SongState> {
       final result = await getNewsSongsUseCase.call();
 
       result.fold(
-        (error) => emit(SongsLoadFailure()),
-        (songs) => emit(SongsLoaded(songs: songs)),
+        (error) {
+          emit(SongsLoadFailure());
+          debugPrint('SONGBLOC ERROR.....: ${error.toString()}');
+        },
+        (songs) {
+          emit(SongsLoaded(songs: songs));
+          debugPrint('SONGBLOC DATA.....: ${songs.toString()}');
+        },
       );
     } catch (e) {
       emit(SongsLoadFailure());
